@@ -12,7 +12,7 @@ import java.lang.annotation.Repeatable;
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports.html",
                 "rerun:target/rerun.txt"},
-        features = "src/test/resources",
+        features = "src/test/resources/features",
         glue = "com/krafttech/step_definitions",
         dryRun = false,
         tags = "@wip"

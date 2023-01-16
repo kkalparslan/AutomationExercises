@@ -29,5 +29,11 @@ Feature: Register User Test
     And The user should fill details: Title, Name, Email, Password, Date of birth
     And The user should select checkboxes
     And The user should fill addres information details
+    And The user should click Create Account button
+    And The user Verify that "ACCOUNT CREATED!" is visible
+    And The user should click Continue button
+    And The user should verify that "Logged in as username" is visible
+    And The user should click Delete Account button
+    Then Verify that "ACCOUNT DELETED!" is visible and click Continue button
 
 

@@ -3,7 +3,9 @@ package com.krafttech.step_definitions;
 import com.krafttech.pages.BasePage;
 import com.krafttech.pages.LoginPage;
 import com.krafttech.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Register_StepDefs {
@@ -45,6 +47,7 @@ public class Register_StepDefs {
     @When("Verify that {string} is visible")
     public void verify_that_is_visible(String message) {
         loginPage.getAccountTextMtd(message);
+
     }
 
     @When("The user should fill details: Title, Name, Email, Password, Date of birth")
@@ -62,14 +65,33 @@ public class Register_StepDefs {
         loginPage.fillAddresInformationMtd();
         loginPage.fillAddress2Metd();
     }
+    @And("The user should click Create Account button")
+    public void theUserShouldClickCreateAccountButton() {
+        loginPage.createAccountMtd();
+    }
 
+    @And("The user Verify that {string} is visible")
+    public void theUserVerifyThatIsVisible(String expextedMessage) {
+        loginPage.getAccountText_2Mtd(expextedMessage);
+    }
 
+    @And("The user should click Continue button")
+    public void theUserShouldClickContinueButton() {
+        loginPage.continueButtonMtd();
+    }
 
+    @And("The user should verify that {string} is visible")
+    public void theUserShouldVerifyThatIsVisible(String message) {
+        loginPage.getLoggedTextMethod(message);
+    }
+    @And("The user should click Delete Account button")
+    public void theUserShouldClickDeleteAccountButton() {
+        loginPage.deleteAccountMethod();
+    }
 
-
-
-
-
-
-
+    @Then("Verify that {string} is visible and click Continue button")
+    public void verifyThatIsVisibleAndClickContinueButton(String expectedMessage) {
+        loginPage.getDeletedMessageMethod(expectedMessage);
+        loginPage.lastContinueMethod();
+    }
 }

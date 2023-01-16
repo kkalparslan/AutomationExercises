@@ -14,42 +14,42 @@ import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends BasePage{
 
-
     @FindBy(xpath = "//i[@class='fa fa-lock']")
     public WebElement signupButton_loc;
-
     @FindBy(xpath = "//h2[text()='New User Signup!']")
     public WebElement newUserSignup_loc;
-
     @FindBy(xpath = "//input[@type='text']")
     public WebElement name_loc;
-
     @FindBy(xpath = "(//input[@name='email'])[2]")
     public WebElement email_loc;
-
     @FindBy(xpath = "(//button[@class='btn btn-default'])[2]")
     public WebElement clickButton_loc;
-
     @FindBy(xpath = "//b[text()='Enter Account Information']")
     public WebElement getAccountText_loc;
-
     @FindBy(xpath = "//label[text()='Sign up for our newsletter!']")
     public WebElement signCheckbox_loc;
-
     @FindBy(xpath = "//label[text()='Receive special offers from our partners!']")
     public WebElement recieveCheckbox_loc;
-
-    ////img[@class='img_ad']
-    //report_text
-    //span[text()='Not interested in this ad']
     @FindBy(css = "#first_name")
     public WebElement firstNameButton_loc;
-
     @FindBy(css = "#country")
     public WebElement country_loc;
-
     @FindBy(css = "#state")
     public WebElement state_loc;
+    @FindBy(xpath = "(//button[@class='btn btn-default'])[1]")
+    public WebElement createAccount_loc;
+    @FindBy(xpath = "//b[.='Account Created!']")
+    public WebElement getAccountText2_loc;
+    @FindBy(xpath = "//a[.='Continue']")
+    public WebElement continueButton_loc;
+    @FindBy(xpath = "//i[@class='fa fa-user']")
+    public WebElement getLoggedText_loc;
+    @FindBy(xpath = "Click 'Delete Account' button")
+    public WebElement deleteAccount_loc;
+    @FindBy(xpath = "//b[.='Account Deleted!']")
+    public WebElement getDeletedMessage_loc;
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement lastContinueButton_loc;
 
     public void navigateUrl(String url){
         Driver.getDriver().get(url);
@@ -104,9 +104,7 @@ public class LoginPage extends BasePage{
         WebElement dropYears = Driver.getDriver().findElement(By.xpath("//select[@id='years']"));
         Select select3=new Select(dropYears);
         select3.selectByValue("2008");
-
     }
-
     public void signCheckBoxMtd(){
         BrowserUtils.scrollToElement(signCheckbox_loc);
         signCheckbox_loc.click();
@@ -120,7 +118,6 @@ public class LoginPage extends BasePage{
      .sendKeys(Keys.TAB)
      .sendKeys(zipCode)
      .perform();*/
-
     public void fillAddresInformationMtd(){
         Actions actions=new Actions(Driver.getDriver());
         actions.click(firstNameButton_loc).sendKeys(ConfigurationReader.get("firstName"))
@@ -132,11 +129,10 @@ public class LoginPage extends BasePage{
                 .sendKeys("520 sok. no:10/10 Ankara")
                 .sendKeys(Keys.TAB)
                 .sendKeys("520 sok. no:10/10 Ankara").perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
         Select select=new Select(country_loc);
         select.selectByValue("United States");
-        BrowserUtils.waitFor(2);
-
+        BrowserUtils.waitFor(1);
     }
     public void fillAddress2Metd(){
         BrowserUtils.scrollToElement(state_loc);
@@ -149,11 +145,46 @@ public class LoginPage extends BasePage{
                 .sendKeys(Keys.TAB)
                 .sendKeys("+1 900 544 7425").perform();
     }
+    public void createAccountMtd(){
+        createAccount_loc.click();
+    }
+    public void getAccountText_2Mtd(String expectedText){
+        String actualText = getAccountText2_loc.getText();
+        System.out.println("actualText = " + actualText);
+        System.out.println("expectedText = " + expectedText);
+        Assert.assertEquals("failed",expectedText,actualText);
+    }
+    public void continueButtonMtd(){
+        continueButton_loc.click();
 
+        //BrowserUtils.clickWithJS(Driver.getDriver().findElement(By.cssSelector("#dismiss-button")));
+        Driver.getDriver().switchTo().frame("aswift_2");
+        Driver.getDriver().findElement(By.cssSelector("#dismiss-button")).click();
+        BrowserUtils.waitFor(2);
+        Driver.getDriver().switchTo().defaultContent();
+//        Alert alert=Driver.getDriver().switchTo().alert();
+//        alert.dismiss();
+    }
+    public void getLoggedTextMethod(String expectedVerify){
 
-
-
-
+        String actualVerify = getLoggedText_loc.getText();
+        System.out.println("expectedVerify = " + expectedVerify);
+        System.out.println("actualVerify = " + actualVerify);
+        Assert.assertEquals("failed", expectedVerify, actualVerify);
+    }
+    public void deleteAccountMethod(){
+        deleteAccount_loc.click();
+    }
+    //Alert alert=driver.switchTo().alert();
+    public void getDeletedMessageMethod(String expectedDeleteMsg){
+        String actualDeleteMsg = getDeletedMessage_loc.getText();
+        System.out.println("expectedDeleteMsg = " + expectedDeleteMsg);
+        System.out.println("actualDeleteMsg = " + actualDeleteMsg);
+        Assert.assertEquals("failed", expectedDeleteMsg, actualDeleteMsg);
+    }
+    public void lastContinueMethod(){
+        lastContinueButton_loc.click();
+    }
 
 
 
