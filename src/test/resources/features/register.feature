@@ -32,7 +32,7 @@ Feature: Register User Test
     And The user should click Create Account button
     And The user Verify that "ACCOUNT CREATED!" is visible
     And The user should click Continue button
-    And The user should verify that "Logged in as username" is visible
+    And The user should verify that "Apocan" is visible
     And The user should click Delete Account button
     Then Verify that "ACCOUNT DELETED!" is visible and click Continue button
 

@@ -1,8 +1,6 @@
 package com.krafttech.step_definitions;
 
-import com.krafttech.pages.BasePage;
 import com.krafttech.pages.LoginPage;
-import com.krafttech.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -77,7 +75,7 @@ public class Register_StepDefs {
 
     @And("The user should click Continue button")
     public void theUserShouldClickContinueButton() {
-        loginPage.continueButtonMtd();
+        loginPage.continueButtonMtd2();
     }
 
     @And("The user should verify that {string} is visible")

@@ -4,7 +4,6 @@ import com.krafttech.utilities.BrowserUtils;
 import com.krafttech.utilities.ConfigurationReader;
 import com.krafttech.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -42,9 +41,9 @@ public class LoginPage extends BasePage{
     public WebElement getAccountText2_loc;
     @FindBy(xpath = "//a[.='Continue']")
     public WebElement continueButton_loc;
-    @FindBy(xpath = "//i[@class='fa fa-user']")
+    @FindBy(xpath = "//b")
     public WebElement getLoggedText_loc;
-    @FindBy(xpath = "Click 'Delete Account' button")
+    @FindBy(xpath = "//a[contains(text(),'Delete Account')]")
     public WebElement deleteAccount_loc;
     @FindBy(xpath = "//b[.='Account Deleted!']")
     public WebElement getDeletedMessage_loc;
@@ -154,7 +153,7 @@ public class LoginPage extends BasePage{
         System.out.println("expectedText = " + expectedText);
         Assert.assertEquals("failed",expectedText,actualText);
     }
-    public void continueButtonMtd(){
+    public void continueButtonMtd1(){
         continueButton_loc.click();
 
         //BrowserUtils.clickWithJS(Driver.getDriver().findElement(By.cssSelector("#dismiss-button")));
@@ -164,6 +163,25 @@ public class LoginPage extends BasePage{
         Driver.getDriver().switchTo().defaultContent();
 //        Alert alert=Driver.getDriver().switchTo().alert();
 //        alert.dismiss();
+    }
+    public void continueButtonMtd2(){
+
+        continueButton_loc.click();
+//        BrowserUtils.waitFor(5);
+//       Driver.getDriver().findElement(By.xpath("//div[@id='dismiss-button']")).click();
+//       // Driver.getDriver().findElement(By.xpath("//span[@class='ns-ybm9b-e-16']")).click();
+//        BrowserUtils.waitFor(5);
+
+        //BrowserUtils.clickWithJS(Driver.getDriver().findElement(By.cssSelector("#dismiss-button")));
+        //Driver.getDriver().switchTo().frame("google_esf"); //google_esf//aswift_2//ad_iframe
+        Driver.getDriver().switchTo().frame("aswift_2");
+        // Driver.getDriver().switchTo().frame("ad_iframe");
+        BrowserUtils.waitFor(1);
+        Driver.getDriver().findElement(By.cssSelector("#dismiss-button")).click();
+        BrowserUtils.waitFor(1);
+        Driver.getDriver().switchTo().defaultContent();
+////        Alert alert=Driver.getDriver().switchTo().alert();
+////        alert.dismiss();
     }
     public void getLoggedTextMethod(String expectedVerify){
 
