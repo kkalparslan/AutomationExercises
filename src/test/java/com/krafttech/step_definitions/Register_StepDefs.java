@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Register_StepDefs {
     LoginPage loginPage=new LoginPage();
@@ -32,8 +33,11 @@ public class Register_StepDefs {
     }
 
     @When("Verify {string} is visible")
-    public void verify_is_visible(String message) {
-        loginPage.getTextMessage(message);
+    public void verify_is_visible(String expectedMessage) {
+        String actualMessage=loginPage.getTextMessage(expectedMessage);
+        System.out.println("expectedMessage = " + expectedMessage);
+        System.out.println("actualMessage = " + actualMessage);
+        Assert.assertEquals(actualMessage, expectedMessage);
     }
 
     @When("The user should enter name and email address")
@@ -92,4 +96,6 @@ public class Register_StepDefs {
         loginPage.getDeletedMessageMethod(expectedMessage);
         loginPage.lastContinueMethod();
     }
+
+
 }

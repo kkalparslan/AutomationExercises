@@ -50,6 +50,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     public WebElement lastContinueButton_loc;
 
+    @FindBy(xpath = "//input[@type='email'][1]")
+    public WebElement correctEmail2_loc;
+
     public void navigateUrl(String url){
         Driver.getDriver().get(url);
     }
@@ -63,11 +66,12 @@ public class LoginPage extends BasePage{
     public void signupMtd(){
         signupButton_loc.click();
     }
-    public void getTextMessage(String expectedMessage){
-        String actualMessage = newUserSignup_loc.getText();
-        System.out.println("expectedMessage = " + expectedMessage);
-        System.out.println("actualMessage = " + actualMessage);
-        Assert.assertEquals("failed", expectedMessage, actualMessage);
+   public String getTextMessage(String expectedMessage){
+        return Driver.getDriver().findElement(By.xpath("//h2[text()='"+expectedMessage+"']")).getText();
+
+       // System.out.println("expectedMessage = " + expectedMessage);
+        //System.out.println("actualMessage = " + actualMessage);
+       // Assert.assertEquals("failed", expectedMessage, actualMessage);
     }
     public void writeNameAndEmailMtd(){
         name_loc.sendKeys(ConfigurationReader.get("firstName"));
@@ -203,6 +207,16 @@ public class LoginPage extends BasePage{
     public void lastContinueMethod(){
         lastContinueButton_loc.click();
     }
+
+    public void correctEmailMtd(){
+        correctEmail2_loc.sendKeys(ConfigurationReader.get("userEmail"));
+
+//        Actions actions=new Actions(Driver.getDriver());  212. satırda kaldım.action class ile input yapamadım.
+//        actions.click(correctEmail2_loc).sendKeys(ConfigurationReader.get("userEmail"))
+//                .sendKeys(Keys.TAB).sendKeys(ConfigurationReader.get("password"));
+    }
+
+
 
 
 
