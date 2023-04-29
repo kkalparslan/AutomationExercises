@@ -20,6 +20,4 @@ import java.lang.annotation.Repeatable;
 
 public class CukesRunner {
 
-
-
 }

@@ -4,6 +4,7 @@ import com.krafttech.utilities.BrowserUtils;
 import com.krafttech.utilities.ConfigurationReader;
 import com.krafttech.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends BasePage{
-
     @FindBy(xpath = "//i[@class='fa fa-lock']")
     public WebElement signupButton_loc;
     @FindBy(xpath = "//h2[text()='New User Signup!']")
@@ -179,13 +179,14 @@ public class LoginPage extends BasePage{
         //BrowserUtils.clickWithJS(Driver.getDriver().findElement(By.cssSelector("#dismiss-button")));
         //Driver.getDriver().switchTo().frame("google_esf"); //google_esf//aswift_2//ad_iframe
         Driver.getDriver().switchTo().frame("aswift_2");
-        // Driver.getDriver().switchTo().frame("ad_iframe");
+        //Driver.getDriver().switchTo().frame("ad_iframe");
         BrowserUtils.waitFor(1);
-        Driver.getDriver().findElement(By.cssSelector("#dismiss-button")).click();
-        BrowserUtils.waitFor(1);
+//        Driver.getDriver().findElement(By.cssSelector("#dismiss-button")).click();
+//        BrowserUtils.waitFor(1);
+
+        Alert alert=Driver.getDriver().switchTo().alert();
+        alert.dismiss();
         Driver.getDriver().switchTo().defaultContent();
-////        Alert alert=Driver.getDriver().switchTo().alert();
-////        alert.dismiss();
     }
     public void getLoggedTextMethod(String expectedVerify){
 
@@ -215,10 +216,4 @@ public class LoginPage extends BasePage{
 //        actions.click(correctEmail2_loc).sendKeys(ConfigurationReader.get("userEmail"))
 //                .sendKeys(Keys.TAB).sendKeys(ConfigurationReader.get("password"));
     }
-
-
-
-
-
-
 }
