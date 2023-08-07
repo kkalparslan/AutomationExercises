@@ -12,17 +12,18 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
     @Before
-    public void setUp(){
+    public void setUp() {
         Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Driver.getDriver().manage().window().maximize();
     }
+
     @After
-    public void tearDown(Scenario scenario){
-        if(scenario.isFailed()){
+    public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","screenshot");
+            scenario.attach(screenshot, "image/png", "screenshot");
         }
         BrowserUtils.waitFor(2);
-       // Driver.closeDriver();
+        Driver.closeDriver();
     }
 }
