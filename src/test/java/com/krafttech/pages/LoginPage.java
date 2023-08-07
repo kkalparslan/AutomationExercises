@@ -49,10 +49,8 @@ public class LoginPage extends BasePage{
     public WebElement getDeletedMessage_loc;
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     public WebElement lastContinueButton_loc;
-
     @FindBy(xpath = "//input[@type='email'][1]")
     public WebElement correctEmail2_loc;
-
     public void navigateUrl(String url){
         Driver.getDriver().get(url);
     }
@@ -169,7 +167,6 @@ public class LoginPage extends BasePage{
 //        alert.dismiss();
     }
     public void continueButtonMtd2(){
-
         continueButton_loc.click();
 //        BrowserUtils.waitFor(5);
 //       Driver.getDriver().findElement(By.xpath("//div[@id='dismiss-button']")).click();
@@ -208,7 +205,6 @@ public class LoginPage extends BasePage{
     public void lastContinueMethod(){
         lastContinueButton_loc.click();
     }
-
     public void correctEmailMtd(){
         correctEmail2_loc.sendKeys(ConfigurationReader.get("userEmail"));
 
