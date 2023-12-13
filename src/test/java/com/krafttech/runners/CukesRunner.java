@@ -16,7 +16,6 @@ import java.lang.annotation.Repeatable;
         glue = "com/krafttech/step_definitions",
         dryRun = false,
         tags = "@wip"
-
                 )
 
 public class CukesRunner {

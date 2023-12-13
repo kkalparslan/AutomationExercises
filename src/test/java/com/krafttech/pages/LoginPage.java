@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends BasePage{
 
-    // Sayfadaki WebElementler:
+    /**Sayfadaki WebElementler:*/
     @FindBy(xpath = "//i[@class='fa fa-lock']")
     public WebElement signupButton_loc;
     @FindBy(xpath = "//h2[text()='New User Signup!']")
