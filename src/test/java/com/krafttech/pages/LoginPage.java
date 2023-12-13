@@ -13,6 +13,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends BasePage{
+
+    // Sayfadaki WebElementler:
     @FindBy(xpath = "//i[@class='fa fa-lock']")
     public WebElement signupButton_loc;
     @FindBy(xpath = "//h2[text()='New User Signup!']")
@@ -60,6 +62,10 @@ public class LoginPage extends BasePage{
         System.out.println("actualUrl = " + actualUrl);
         System.out.println("expectedUrl = " + expectedUrl);
         Assert.assertEquals("failed", expectedUrl,actualUrl);
+
+       /** WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/"));
+        Chat gpt suggestion*/
     }
     public void signupMtd(){
         signupButton_loc.click();
