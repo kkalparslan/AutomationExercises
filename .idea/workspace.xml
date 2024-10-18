@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="019609e0-05ef-48f0-a213-c8616ecd0d89" name="Changes" comment="12.13.2023" />
+    <list default="true" id="019609e0-05ef-48f0-a213-c8616ecd0d89" name="Changes" comment="18.10.24" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -185,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702496323237</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="18.10.24">
+      <option name="closed" value="true" />
+      <created>1729284464333</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729284464333</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +220,7 @@
     <MESSAGE value="New codes added 25.05.2023" />
     <MESSAGE value="07.08.2023" />
     <MESSAGE value="12.13.2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="12.13.2023" />
+    <MESSAGE value="18.10.24" />
+    <option name="LAST_COMMIT_MESSAGE" value="18.10.24" />
   </component>
 </project>
