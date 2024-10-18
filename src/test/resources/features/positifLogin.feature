@@ -26,8 +26,8 @@
   #  #17. Click 'Delete Account' button
   #  #18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
-  Feature: Login User with correct email and password Test
 
+  Feature: Login User with correct email and password Test
     @positifTest
     Scenario: The User should login with valid credentials
       Given The user should launch browser and navigate to url "https://automationexercise.com/"
