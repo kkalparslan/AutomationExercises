@@ -95,6 +95,8 @@
       <list>
         <item itemvalue="JUnit.CukesRunner" />
         <item itemvalue="Cucumber Java.Scenario: Register User and take information" />
+        <item itemvalue="JUnit.CukesRunner" />
+        <item itemvalue="Cucumber Java.Scenario: Register User and take information" />
       </list>
     </recent_temporary>
   </component>
